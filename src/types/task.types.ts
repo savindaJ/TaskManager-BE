@@ -5,7 +5,7 @@ export interface CreateTaskInput {
   description?: string;
   status?: TaskStatus;
   priority?: TaskPriority;
-  dueDate?: Date;
+  dueDate?: string | Date;
   tags?: string[];
 }
 
@@ -14,7 +14,7 @@ export interface UpdateTaskInput {
   description?: string;
   status?: TaskStatus;
   priority?: TaskPriority;
-  dueDate?: Date;
+  dueDate?: string | Date | null;
   tags?: string[];
 }
 

@@ -13,10 +13,10 @@ export class TaskService {
     return prisma.task.create({
       data: {
         title: data.title,
-        description: data.description,
+        description: data.description || undefined,
         status: data.status,
         priority: data.priority,
-        dueDate: data.dueDate,
+        dueDate: data.dueDate ? new Date(data.dueDate) : undefined,
         tags: data.tags || [],
       },
     });
@@ -93,10 +93,10 @@ export class TaskService {
       where: { id },
       data: {
         ...(data.title && { title: data.title }),
-        ...(data.description !== undefined && { description: data.description }),
+        ...(data.description !== undefined && { description: data.description || null }),
         ...(data.status && { status: data.status }),
         ...(data.priority && { priority: data.priority }),
-        ...(data.dueDate !== undefined && { dueDate: data.dueDate }),
+        ...(data.dueDate !== undefined && { dueDate: data.dueDate ? new Date(data.dueDate) : null }),
         ...(data.tags && { tags: data.tags }),
       },
     });
