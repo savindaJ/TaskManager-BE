@@ -4,9 +4,9 @@
   "description": "Task Manager Backend API with MongoDB and Prisma",
   "main": "dist/server.js",
   "scripts": {
-    "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
-    "build": "tsc",
-    "start": "node dist/server.js",
+    "dev": "node init && ts-node-dev --respawn --transpile-only src/server.ts",
+    "build": "node init && tsc",
+    "start": "node init && node dist/server.js",
     "prisma:generate": "prisma generate",
     "prisma:push": "prisma db push",
     "prisma:studio": "prisma studio",
@@ -16,7 +16,8 @@
     "@prisma/client": "^6.19.1",
     "cors": "^2.8.5",
     "dotenv": "^17.2.3",
-    "express": "^5.2.1"
+    "express": "^5.2.1",
+    "node-fetch": "^3.3.2"
   },
   "devDependencies": {
     "@types/cors": "^2.8.19",
